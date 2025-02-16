@@ -23,10 +23,10 @@ def get_school_website(school_name):
 
 
 # Load the CSV into a pandas DataFrame
-csv_file = "WASchools.csv"  # Replace with the path to your CSV file
+csv_file = "WASchools.csv"
 df = pd.read_csv(csv_file)
 
-# Check if there's a column for school names (adjust based on your CSV structure)
+# Check if there's a column for school names
 school_name_column = (
     "SchoolName"  # Replace with the actual column name for the school names
 )
