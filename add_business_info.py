@@ -11,7 +11,7 @@ options.add_argument('--headless')  # To run in headless mode (without opening b
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 # Load your CSV file into a pandas DataFrame
-csv_file = "WASchools3.csv"
+csv_file = "WASchools4.csv"
 df = pd.read_csv(csv_file)
 
 # Define the link columns
@@ -60,6 +60,8 @@ for index, row in df.iterrows():
         # Assign the result to the 'OffersEducation' column
         df.at[index, "OffersEducation"] = offers_education
         print(offers_education)
+        # Save to the CSV after each row
+        df.to_csv("WASchools6.csv", index=False)
     except Exception as e:
         print(f"Error at index {index}: {e}")
         break
@@ -68,4 +70,4 @@ for index, row in df.iterrows():
 driver.quit()
 
 # Save the updated DataFrame to a new CSV file
-df.to_csv("WASchools4.csv", index=False)
+df.to_csv("WASchools6.csv", index=False)
